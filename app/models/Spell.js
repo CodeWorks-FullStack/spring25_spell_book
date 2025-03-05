@@ -32,6 +32,7 @@ export class SandboxSpell extends Spell {
     this.prepared = data.prepared
   }
 
+  // Overrides buttonTemplate inherited from Spell
   get buttonTemplate() {
     return `
     <div>

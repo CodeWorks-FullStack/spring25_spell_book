@@ -13,6 +13,8 @@ class SandboxSpellsService {
     const spell = AppState.activeSpell
     const response = await api.post('api/spells', spell)
     console.log('CREATED SPELL 🪄📡🧙‍♂️', response.data)
+    const newSpell = new SandboxSpell(response.data)
+    AppState.sandboxSpells.push(newSpell)
   }
 }
 

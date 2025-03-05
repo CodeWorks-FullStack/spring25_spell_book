@@ -69,7 +69,7 @@ export class DetailedSpell {
 
   get activeTemplate() {
     return `
-    <div class="bg-light shadow-lg p-3">
+    <div class="bg-light shadow-lg p-3 sticky-top">
       <div class="d-flex justify-content-between">
         <h1 class="d-flex gap-2">
           <span>${this.name}</span>

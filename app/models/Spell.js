@@ -31,4 +31,14 @@ export class SandboxSpell extends Spell {
     this.school = data.school
     this.prepared = data.prepared
   }
+
+  get buttonTemplate() {
+    return `
+    <div>
+      <button onclick="app.dndSpellsController.getSpellDetails('${this.index}')" class="btn btn-indigo mb-2 w-100" title="See details about ${this.name}" type="button">
+        ${this.name}
+      </button>
+    </div>
+    `
+  }
 }

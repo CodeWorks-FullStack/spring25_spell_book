@@ -6,6 +6,8 @@ export class DNDSpellsController {
   constructor() {
     AppState.on('dndSpells', this.drawSpells)
     AppState.on('activeSpell', this.drawActiveSpell)
+    AppState.on('identity', this.drawActiveSpell)
+
     this.getSpells()
   }
 
@@ -19,6 +21,9 @@ export class DNDSpellsController {
 
   drawActiveSpell() {
     const spell = AppState.activeSpell
+    if (spell == null) {
+      return
+    }
     const activeSpellement = document.getElementById('activeSpell')
     activeSpellement.innerHTML = spell.activeTemplate
   }

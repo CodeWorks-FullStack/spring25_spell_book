@@ -1,3 +1,4 @@
+import { AppState } from "../AppState.js";
 
 export class DetailedSpell {
   constructor(data) {
@@ -67,6 +68,18 @@ export class DetailedSpell {
     return spans;
   }
 
+  get saveButton() {
+    if (AppState.identity == null) {
+      return ''
+    }
+
+    return `
+     <button onclick="app.sandboxSpellsController.saveSpell()" class="btn btn-indigo" type="button">
+          Save Spell
+      </button>
+    `
+  }
+
   get activeTemplate() {
     return `
     <div class="bg-light shadow-lg p-3 sticky-top">
@@ -75,9 +88,7 @@ export class DetailedSpell {
           <span>${this.name}</span>
           <span class="fs-4 text-indigo">Lvl ${this.level}</span>
         </h1>
-        <button onclick="app.sandboxSpellsController.saveSpell()" class="btn btn-indigo" type="button">
-          Save Spell
-        </button>
+        ${this.saveButton}
       </div>
       <hr>
       <p>Damage type: ${this.damageType} | ${this.areaOfEffectSpan} | ${this.castingTime} </p>

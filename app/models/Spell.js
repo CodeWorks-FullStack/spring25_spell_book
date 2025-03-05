@@ -52,6 +52,13 @@ export class DetailedSpell {
 
     return 'border border-indigo'
   }
+  get concentrationClasses() {
+    if (this.requiresConcentration) {
+      return 'bg-orange text-light'
+    }
+
+    return 'border border-orange'
+  }
 
   get descriptionWithBreaks() {
     return this.description.join('<br><br>')
@@ -91,7 +98,7 @@ export class DetailedSpell {
           <span class="mdi mdi-knife-military"></span>
           Ritual
         </span>
-        <span class="bg-orange ms-2 px-4 text-light rounded-pill">
+        <span class="${this.concentrationClasses} ms-2 px-4 rounded-pill" title="${this.requiresConcentration ? 'Requires Concentration' : 'No Concentration required'}">
           <span class="mdi mdi-head-snowflake"></span>
           Concentration
         </span>

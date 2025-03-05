@@ -24,4 +24,14 @@ export class DNDSpellsController {
       Pop.error(error, 'Could not get spells!')
     }
   }
+
+  async getSpellDetails(spellIndex) {
+    try {
+      console.log('Clicked button for ' + spellIndex);
+      await dndSpellsService.getSpellDetails(spellIndex)
+    } catch (error) {
+      console.error('COULD NOT GET SPELL DETAILS', error)
+      Pop.error(error, 'Could not get spell details!')
+    }
+  }
 }

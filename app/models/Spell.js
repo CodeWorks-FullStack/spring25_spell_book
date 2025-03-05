@@ -31,7 +31,7 @@ export class DetailedSpell {
     this.range = data.range
     this.isRitual = data.ritual
     this.school = data.school.name
-    this.damageType = data.damage.damage_type.name
+    this.damageType = data.damage ? data.damage.damage_type.name : 'No damage'
   }
 
   get activeTemplate() {

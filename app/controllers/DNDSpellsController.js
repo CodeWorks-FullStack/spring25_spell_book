@@ -5,6 +5,7 @@ import { Pop } from "../utils/Pop.js"
 export class DNDSpellsController {
   constructor() {
     AppState.on('dndSpells', this.drawSpells)
+    AppState.on('activeSpell', this.drawActiveSpell)
     this.getSpells()
   }
 
@@ -12,8 +13,14 @@ export class DNDSpellsController {
     const spells = AppState.dndSpells
     let spellsContent = ''
     spells.forEach(spell => spellsContent += spell.buttonTemplate)
-    const spellEment = document.getElementById('dndSpellsList')
-    spellEment.innerHTML = spellsContent
+    const spellement = document.getElementById('dndSpellsList')
+    spellement.innerHTML = spellsContent
+  }
+
+  drawActiveSpell() {
+    const spell = AppState.activeSpell
+    const activeSpellement = document.getElementById('activeSpell')
+    activeSpellement.innerHTML = spell.activeTemplate
   }
 
   async getSpells() {

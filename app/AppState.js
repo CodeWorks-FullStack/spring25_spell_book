@@ -1,5 +1,6 @@
 import { Identity } from './Auth/Identity.js'
-import { DetailedSpell, Spell } from './models/Spell.js'
+import { Spell } from './models/Spell.js'
+import { DetailedSpell } from "./models/DetailedSpell.js"
 import { EventEmitter } from './utils/EventEmitter.js'
 import { createObservableProxy } from './utils/ObservableProxy.js'
 

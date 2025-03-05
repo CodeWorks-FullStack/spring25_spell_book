@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
-import { DetailedSpell, Spell } from "../models/Spell.js";
+import { Spell } from "../models/Spell.js";
+import { DetailedSpell } from "../models/DetailedSpell.js";
 import { dndApi } from "../utils/Axios.js"
 
 class DNDSpellsService {

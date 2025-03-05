@@ -1,12 +1,19 @@
 import { baseURL } from '../env.js';
 import { logger } from '../utils/Logger.js';
 
+// NOTE use the api instance of axios to interact with the sandbox only
 // @ts-ignore
 // eslint-disable-next-line no-undef
 export const api = axios.create({
   baseURL: baseURL,
   timeout: 8000,
   withCredentials: true
+})
+
+// @ts-ignore
+export const dndApi = axios.create({
+  baseURL: 'https://www.dnd5eapi.co/api/2014/',
+  timeout: 500
 })
 
 api.interceptors.request.use(config => config, handleAxiosError)

@@ -36,7 +36,7 @@ export class SandboxSpell extends Spell {
   get buttonTemplate() {
     return `
     <div class="d-flex">
-      <input onchange="app.sandboxSpellsController.toggleSpellPreparation('${this.id}')" type="checkbox" title="Toggle spell preparation">
+      <input onchange="app.sandboxSpellsController.toggleSpellPreparation('${this.id}')" type="checkbox" title="Toggle spell preparation" ${this.prepared ? 'checked' : ''} >
       <button onclick="app.dndSpellsController.getSpellDetails('${this.index}')" class="btn ${this.prepared ? 'btn-indigo' : 'btn-outline-indigo'} mb-2 w-100 ms-1" title="See details about ${this.name}" type="button">
         ${this.name}
       </button>

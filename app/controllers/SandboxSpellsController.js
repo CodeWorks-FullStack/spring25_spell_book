@@ -12,6 +12,14 @@ export class SandboxSpellsController {
     // ❌ this.getMySpells()
   }
 
+  drawSandboxSpells() {
+    const spells = AppState.sandboxSpells
+    let spellContent = ''
+    spells.forEach(spell => spellContent += spell.buttonTemplate)
+    const sandboxSpellement = document.getElementById('sandboxSpells')
+    sandboxSpellement.innerHTML = spellContent
+  }
+
   async saveSpell() {
     try {
       await sandboxSpellsService.createSpell()
@@ -30,16 +38,13 @@ export class SandboxSpellsController {
     }
   }
 
-  drawSandboxSpells() {
-    const spells = AppState.sandboxSpells
-    let spellContent = ''
-    spells.forEach(spell => spellContent += spell.buttonTemplate)
-    const sandboxSpellement = document.getElementById('sandboxSpells')
-    sandboxSpellement.innerHTML = spellContent
-  }
-
-  toggleSpellPreparation(spellId) {
-    console.log('toggling spell with the id of ' + spellId);
-
+  async toggleSpellPreparation(spellId) {
+    try {
+      console.log('toggling spell with the id of ' + spellId);
+      await sandboxSpellsService.updateSpell(spellId)
+    } catch (error) {
+      Pop.error(error, 'Could not toggle my spell!')
+      console.error('COULD NOT TOGGLE MY SPELL', error);
+    }
   }
 }

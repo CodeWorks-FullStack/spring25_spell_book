@@ -37,4 +37,9 @@ export class SandboxSpellsController {
     const sandboxSpellement = document.getElementById('sandboxSpells')
     sandboxSpellement.innerHTML = spellContent
   }
+
+  toggleSpellPreparation(spellId) {
+    console.log('toggling spell with the id of ' + spellId);
+
+  }
 }

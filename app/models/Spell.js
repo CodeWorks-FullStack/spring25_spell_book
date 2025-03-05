@@ -35,8 +35,9 @@ export class SandboxSpell extends Spell {
   // Overrides buttonTemplate inherited from Spell
   get buttonTemplate() {
     return `
-    <div>
-      <button onclick="app.dndSpellsController.getSpellDetails('${this.index}')" class="btn btn-indigo mb-2 w-100" title="See details about ${this.name}" type="button">
+    <div class="d-flex">
+      <input onchange="app.sandboxSpellsController.toggleSpellPreparation('${this.id}')" type="checkbox" title="Toggle spell preparation">
+      <button onclick="app.dndSpellsController.getSpellDetails('${this.index}')" class="btn ${this.prepared ? 'btn-indigo' : 'btn-outline-indigo'} mb-2 w-100 ms-1" title="See details about ${this.name}" type="button">
         ${this.name}
       </button>
     </div>

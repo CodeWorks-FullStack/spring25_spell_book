@@ -87,10 +87,15 @@ export class DetailedSpell {
   get activeTemplate() {
     return `
     <div class="bg-light shadow-lg p-3">
-      <h1 class="d-flex gap-2">
-        <span>${this.name}</span>
-        <span class="fs-4 text-indigo">Lvl ${this.level}</span>
-      </h1>
+      <div class="d-flex justify-content-between">
+        <h1 class="d-flex gap-2">
+          <span>${this.name}</span>
+          <span class="fs-4 text-indigo">Lvl ${this.level}</span>
+        </h1>
+        <button onclick="app.sandboxSpellsController.saveSpell()" class="btn btn-indigo" type="button">
+          Save Spell
+        </button>
+      </div>
       <hr>
       <p>Damage type: ${this.damageType} | ${this.areaOfEffectSpan} | ${this.castingTime} </p>
       <p>

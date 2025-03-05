@@ -34,6 +34,8 @@ class SandboxSpellsService {
 
     foundSpell.prepared = !foundSpell.prepared
 
+    // NOTE this put request requires that you specify which item you're updating by including the resource id in the request URL
+    // NOTE you must supply a body for this put request to specify what you want to update about the specified resource
     const response = await api.put(`api/spells/${spellId}`, foundSpell)
     console.log('UPDATED SPELL 🪄✅', response.data);
 

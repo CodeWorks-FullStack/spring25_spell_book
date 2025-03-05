@@ -2,7 +2,7 @@ import { AppState } from "../AppState.js";
 
 export class DetailedSpell {
   constructor(data) {
-    this.areaOfEffect = data.area_of_effect ? data.area_of_effect : null;
+    this.areaOfEffect = data.area_of_effect ?? null;
     this.castingTime = data.casting_time;
     this.classes = data.classes;
     this.components = data.components;
@@ -24,9 +24,7 @@ export class DetailedSpell {
       return '<span>Target</span>';
     }
 
-    return `
-    <span>Size ${this.areaOfEffect.size} ${this.areaOfEffect.type}</span>
-    `;
+    return `<span>Size ${this.areaOfEffect.size} ${this.areaOfEffect.type}</span>`;
   }
 
   get ritualClasses() {
@@ -91,7 +89,7 @@ export class DetailedSpell {
         ${this.saveButton}
       </div>
       <hr>
-      <p>Damage type: ${this.damageType} | ${this.areaOfEffectSpan} | ${this.castingTime} </p>
+      <p>Damage type: ${this.damageType} | ${this.areaOfEffectSpan} | ${this.castingTime}</p>
       <p>
         <span class="px-4 rounded-pill ${this.ritualClasses}" title="${this.isRitual ? 'Ritual' : 'Not Ritual'}">
           <span class="mdi mdi-knife-military"></span>
@@ -104,9 +102,7 @@ export class DetailedSpell {
       </p>
       <p>${this.descriptionWithBreaks}</p>
       <hr>
-      <p>
-        ${this.componentSpans}
-      </p>
+      <p class="d-flex gap-1">${this.componentSpans}</p>
       <p>${this.material}</p>
     </div>
     `;

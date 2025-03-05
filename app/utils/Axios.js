@@ -13,7 +13,7 @@ export const api = axios.create({
 // @ts-ignore
 export const dndApi = axios.create({
   baseURL: 'https://www.dnd5eapi.co/api/2014/',
-  timeout: 500
+  timeout: 2000
 })
 
 api.interceptors.request.use(config => config, handleAxiosError)

@@ -16,9 +16,20 @@ export class Spell {
   }
 }
 
-// const dataExample = {
-//   "index": "acid-arrow",
-//   "name": "Acid Arrow",
-//   "level": 2,
-//   "url": "/api/2014/spells/acid-arrow"
-// }
+export class DetailedSpell {
+  constructor(data) {
+    this.areaOfEffect = data.area_of_effect
+    this.castingTime = data.casting_time
+    this.classes = data.classes
+    this.components = data.components
+    this.requiresConcentration = data.concentration
+    this.description = data.desc
+    this.duration = data.duration
+    this.index = data.index
+    this.level = data.level
+    this.name = data.name
+    this.range = data.range
+    this.isRitual = data.ritual
+    this.school = data.school.name
+  }
+}

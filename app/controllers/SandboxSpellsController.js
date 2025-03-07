@@ -4,28 +4,24 @@ import { Pop } from "../utils/Pop.js";
 
 export class SandboxSpellsController {
   constructor() {
-    // NOTE only get my spells after I am logged in!
     AppState.on('identity', this.getMySpells)
     AppState.on('sandboxSpells', this.drawSandboxSpells)
     AppState.on('sandboxSpells', this.drawSpellCount)
-
-    // NOTE this will not work on page load because we are not logged in yet! Check the order that your requests are firing off in your network tab!
-    // ❌ this.getMySpells()
   }
 
   drawSandboxSpells() {
     const spells = AppState.sandboxSpells
     let spellContent = ''
     spells.forEach(spell => spellContent += spell.buttonTemplate)
-    const sandboxSpellement = document.getElementById('sandboxSpells')
+    const sandboxSpellement = document.getElementById('dndSpellsList')
     sandboxSpellement.innerHTML = spellContent
   }
 
   drawSpellCount() {
     const spells = AppState.sandboxSpells
-    const preparedSpells = spells.filter(spell => spell.prepared)
+    const preparedSpells = spells.filter(spell => spell.prepared = true)
     const spellCountElem = document.getElementById('spellCount')
-    spellCountElem.innerText = `${preparedSpells.length}/${spells.length}`
+    spellCountElem.innerText = `${preparedSpells.length / spells.length}`
   }
 
   async saveSpell() {
